@@ -18,20 +18,17 @@ public class UserController {
         this.userService = userService;
     }
 
-    // Endpoint para criar um usuário
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
         try {
             UserDTO savedUser = userService.saveUser(userDTO);
             return ResponseEntity.ok(savedUser);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(null); // Erro amigável no corpo
+            return ResponseEntity.badRequest().body(null);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(null); // Erro genérico
         }
     }
-
-    // Endpoint para obter um usuário pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getUser(@PathVariable Long id) {
         try {
@@ -41,8 +38,6 @@ public class UserController {
             return ResponseEntity.badRequest().body(null);
         }
     }
-
-    // Endpoint para listar todos os usuários
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<UserDTO> users = userService.getAllUsers();

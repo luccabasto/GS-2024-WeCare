@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class HabitService {
 
     private final HabitRepository habitRepository;
-    private final GoalRepository goalRepository;
+    private GoalRepository goalRepository = null;
 
     public HabitService(HabitRepository habitRepository) {
         this.habitRepository = habitRepository;

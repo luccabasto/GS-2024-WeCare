@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class GoalService {
 
     private final GoalRepository goalRepository;
-    private final UserRepository userRepository;
+    private UserRepository userRepository = null;
 
     public GoalService(GoalRepository goalRepository) {
         this.goalRepository = goalRepository;

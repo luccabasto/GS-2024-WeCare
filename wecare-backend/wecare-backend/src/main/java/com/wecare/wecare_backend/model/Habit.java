@@ -27,7 +27,6 @@ public class Habit extends RepresentationModel<Habit> {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
     private LocalDateTime criado_em = LocalDateTime.now();
 
     public Long getId() {

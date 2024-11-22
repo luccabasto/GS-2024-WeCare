@@ -142,7 +142,7 @@ WeCare - solução desenvolvida para GS 2024
 
 Lucas Basto - RM553771
 Erick Lopes - RM553927
-Gabriel Bragança - 554064
+Gabriel Bragança - RM554064
 
 
-[LINK for Github()]
+[LINK for Github(https://github.com/luccabasto/GS-2024-WeCare)]

@@ -39,7 +39,8 @@ WeCare é um sistema desenvolvido para ajudar usuários a gerenciar hábitos, me
 <hr>
 
 **Swagger UI** 
-
+--- Adicionar
+<hr>
 
 **Test via Postman**
 
@@ -100,7 +101,6 @@ Resposta JSON:
 ]
 
 3. CRUD de Hábitos
-
 _Criar Hábito (POST/api/habits)_
 
 Exemplo JSON:
@@ -121,6 +121,7 @@ Resposta JSON:
     "userId": 1
   }
 ]
+<hr>
 
 ### Credenciais para Testes
 
@@ -131,18 +132,23 @@ Resposta JSON:
     * Senha: password123
 
 * API KEY (Caso seja necessário):
-
-    API-KEY: abc123-def456-gh789
+   - API-KEY: abc123-def456-gh789
 
 
 
 -------------------------------------------------
 
-WeCare - solução desenvolvida para GS 2024
+**WeCare - solução desenvolvida para GS 2024**
 
 Lucas Basto - RM553771
 Erick Lopes - RM553927
 Gabriel Bragança - RM554064
 
 
-[LINK for Github(https://github.com/luccabasto/GS-2024-WeCare)]
+[LINK for Github](https://github.com/luccabasto/GS-2024-WeCare)
+
+<hr>
+
+***UML do WeCare***
+
+![Texto Alternativo](WeCareUML.drawio.png)

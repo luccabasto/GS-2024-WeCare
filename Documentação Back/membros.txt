@@ -1,0 +1,17 @@
+WeCare - solução desenvolvida para GS 2024
+
+Lucas Basto - RM553771
+Erick Lopes - RM553927
+Gabriel Bragança - RM554064
+
+
+LINK for Github:
+https://github.com/luccabasto/GS-2024-WeCare
+
+ps: Professor fiquei na dúvida se era para enviar apenas o link ou a arquitetura em si.
+
+ 
+!!!!! DÊ PREFERÊNCIA EM CORRIGIR O CÓDIGO O REPOSITÓRIO !!!! 
+
+OBG PROFESSOR, BOM FINAL DE ANO 
+Lucas Basto

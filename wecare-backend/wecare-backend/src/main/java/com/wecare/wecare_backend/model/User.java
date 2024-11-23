@@ -28,8 +28,7 @@ public class User extends RepresentationModel<User> {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}")
-    @Column(unique = true)
+    @Column(nullable = false, unique = true, length = 14)
     private String cpf;
 
     @NotBlank(message = "Campo obrigatório")

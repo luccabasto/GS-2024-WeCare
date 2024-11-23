@@ -9,4 +9,5 @@ public interface HabitRepository extends JpaRepository<Habit, Long> {
 
     List<Habit> findByGoalId(Long goalId);
 
+    Object findByUserId(long l);
 }

@@ -4,6 +4,10 @@ import com.wecare.wecare_backend.dto.GoalDTO;
 import com.wecare.wecare_backend.model.Goal;
 import com.wecare.wecare_backend.repository.GoalRepository;
 import com.wecare.wecare_backend.repository.UserRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.ParameterMode;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.StoredProcedureQuery;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +16,26 @@ import java.util.stream.Collectors;
 @Service
 public class GoalService {
 
+        @PersistenceContext
+        private EntityManager entityManager;
+
+        public void insertGoal(String title, String descricao, int userId) {
+            StoredProcedureQuery query = entityManager.createStoredProcedureQuery("insert_goal");
+            query.registerStoredProcedureParameter("p_title", String.class, ParameterMode.IN);
+            query.registerStoredProcedureParameter("p_descricao", String.class, ParameterMode.IN);
+            query.registerStoredProcedureParameter("p_user_id", Integer.class, ParameterMode.IN);
+
+            query.setParameter("p_title", title);
+            query.setParameter("p_descricao", descricao);
+            query.setParameter("p_user_id", userId);
+
+            query.execute();
+        }
+
+
     private final GoalRepository goalRepository;
     private UserRepository userRepository = null;
+
 
     public GoalService(GoalRepository goalRepository) {
         this.goalRepository = goalRepository;

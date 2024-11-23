@@ -59,4 +59,11 @@ public class HabitService {
         return dto;
     }
 
+    public List<Habit> getUserHabits(long l) {
+        List<Habit> userHabits = null;
+        return userHabits;
+    }
+
+    public void insertHabit(String exercise, int i) {
+    }
 }

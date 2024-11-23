@@ -32,13 +32,13 @@ public class UserController {
             @RequestParam String email,
             @RequestParam String cpf,
             @RequestParam String endereco) {
-        userService.insertUser(nome, idade, motivacao, email, cpf, endereco);
+        userService.createUser(nome, idade, motivacao, email, cpf, endereco);
         return ResponseEntity.ok("Usuário inserido com sucesso!");
     }
 
     @PostMapping
     public ResponseEntity<String> createUser(@Valid @RequestBody UserDTO userDTO) {
-        userService.insertUser(
+        userService.createUser(
                 userDTO.getNome(), userDTO.getIdade(), userDTO.getMotivacao(), userDTO.getEmail(), userDTO.getCpf(), userDTO.getEndereco());
         return ResponseEntity.ok("User criado com sucesso");
     }

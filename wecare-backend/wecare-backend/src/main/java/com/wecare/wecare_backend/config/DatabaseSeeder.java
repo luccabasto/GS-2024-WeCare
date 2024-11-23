@@ -4,17 +4,26 @@ import com.wecare.wecare_backend.service.GoalService;
 import com.wecare.wecare_backend.service.HabitService;
 import com.wecare.wecare_backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DatabaseSeeder implements CommandLineRunner {
 
+    @Value("${app.seed-database:false}")
+    private boolean seedDatabase;
+
     @Override
     public void run(String... args) throws Exception {
+
+        if (!seedDatabase) {
+            return; // Não executa se a flag estiver desativada
+        }
+
         // Inserir usuários
-        userService.insertUser("Lucca Basto", 30, "Health", "test12.doe@example.com", "12345658920", "Street 1");
-        userService.insertUser("Sa Zoe", 25, "Saúde Mental", "Zoe.tg@example.com", "04599823925", "Street 5");
+        userService.createUser("Lucca Basto", 30, "Health", "mudando.doe@example.com", "12345658920", "Street 1");
+        userService.createUser("Sa Zoe", 25, "Saúde Mental", "Zoe.tg@example.com", "04599823925", "Street 5");
 
 
 

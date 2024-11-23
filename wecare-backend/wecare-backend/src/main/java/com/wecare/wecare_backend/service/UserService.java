@@ -26,27 +26,38 @@ public class UserService {
             return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
         }
     }
+// Procedrues estão quebrando o código mesmo fazendo a requisisçã
+//    public void insertUser(String nome, int idade, String motivacao, String email, String cpf, String endereco) {
+//
+//        String formattedCPF = CPFUtils.formatCPF(cpf);
+//        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("insert_user");
+//        query.registerStoredProcedureParameter("p_nome", String.class, ParameterMode.IN);
+//        query.registerStoredProcedureParameter("p_idade", Integer.class, ParameterMode.IN);
+//        query.registerStoredProcedureParameter("p_motivacao", String.class, ParameterMode.IN);
+//        query.registerStoredProcedureParameter("p_email", String.class, ParameterMode.IN);
+//        query.registerStoredProcedureParameter("p_cpf", String.class, ParameterMode.IN);
+//        query.registerStoredProcedureParameter("p_endereco", String.class, ParameterMode.IN);
+//
+//        query.setParameter("p_nome", nome);
+//        query.setParameter("p_idade", idade);
+//        query.setParameter("p_motivacao", motivacao);
+//        query.setParameter("p_email", email);
+//        query.setParameter("p_cpf",formattedCPF);
+//        query.setParameter("p_endereco", endereco);
+//
+//        query.execute();
+//    }
 
+    public User createUser(String nome, int idade, String motivacao, String email, String cpf, String endereco) {
+        User user = new User();
+        user.setNome(nome);
+        user.setIdade(idade);
+        user.setMotivacao(motivacao);
+        user.setEmail(email);
+        user.setCpf(cpf);
+        user.setEndereco(endereco);
 
-    public void insertUser(String nome, int idade, String motivacao, String email, String cpf, String endereco) {
-
-        String formattedCPF = CPFUtils.formatCPF(cpf);
-        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("insert_user");
-        query.registerStoredProcedureParameter("p_nome", String.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_idade", Integer.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_motivacao", String.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_email", String.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_cpf", String.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_endereco", String.class, ParameterMode.IN);
-
-        query.setParameter("p_nome", nome);
-        query.setParameter("p_idade", idade);
-        query.setParameter("p_motivacao", motivacao);
-        query.setParameter("p_email", email);
-        query.setParameter("p_cpf",formattedCPF);
-        query.setParameter("p_endereco", endereco);
-
-        query.execute();
+        return userRepository.save(user);
     }
 
     private final UserRepository userRepository;
@@ -62,9 +73,6 @@ public class UserService {
     private JdbcTemplate jdbcTemplate;
     @PersistenceContext
     private EntityManager entityManager;
-
-
-
 
     public UserDTO getUserById(Long id) {
         User user = userRepository.findById(id)

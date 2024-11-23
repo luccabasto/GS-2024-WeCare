@@ -29,6 +29,13 @@ public class UserDTO {
     private String endereco;
 
     public UserDTO(Long id, String nome, int idade, String motivacao, String email, String cpf, String endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.idade = idade;
+        this.motivacao = motivacao;
+        this.email = email;
+        this.cpf = cpf;
+        this.endereco = endereco;
     }
 
     public Long getId() {

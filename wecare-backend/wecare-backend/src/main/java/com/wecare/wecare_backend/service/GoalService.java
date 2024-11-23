@@ -8,6 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.ParameterMode;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.StoredProcedureQuery;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,18 @@ import java.util.stream.Collectors;
 
 @Service
 public class GoalService {
+
+    @Autowired
+    private GoalRepository goalRepository;
+
+    public Goal createGoal(String title, String description, Long userId) {
+        Goal goal = new Goal();
+        goal.setTitle(title);
+        goal.setDescricao(description);
+        goal.setId(userId);
+
+        return goalRepository.save(goal); // Salva diretamente no banco
+    }
 
         @PersistenceContext
         private EntityManager entityManager;
@@ -31,9 +44,6 @@ public class GoalService {
 
             query.execute();
         }
-
-
-    private final GoalRepository goalRepository;
     private UserRepository userRepository = null;
 
 
